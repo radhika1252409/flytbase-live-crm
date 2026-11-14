@@ -1,13 +1,899 @@
-{
-    "connected":  true,
-    "tool":  "get_my_accounts",
-    "result":  {
-                   "content":  [
-                                   {
-                                       "type":  "text",
-                                       "text":  "{\n \"format\": \"account-quest-v2-export/1\",\n \"player\": \"e747fdf3-1fe2-4d6d-80f0-ac1255f3a28e\",\n \"exported_at\": \"2026-11-14T09:04:29.351Z\",\n \"minute\": 150,\n \"world_closed\": true,\n \"accounts\": [\n  {\n   \"id\": \"A\",\n   \"name\": \"Eastern Counties Police Alliance\",\n   \"official_story\": \"Rollout under way. 4 forces, 35 docks, 300-dock framework tender in preparation.\",\n   \"stakeholders\": [\n    {\n     \"id\": \"rhys_calder\",\n     \"name\": \"Rhys Calder\",\n     \"role\": \"Alliance drone programme lead\",\n     \"relationship\": \"ally\",\n     \"available\": true\n    },\n    {\n     \"id\": \"karen_mbeki\",\n     \"name\": \"Insp. Karen Mbeki\",\n     \"role\": \"Drone unit inspector, Westmere\",\n     \"relationship\": \"warm\",\n     \"available\": true\n    },\n    {\n     \"id\": \"fatima_osei\",\n     \"name\": \"Fatima Osei\",\n     \"role\": \"Data protection officer, Tarn Valley\",\n     \"relationship\": \"neutral\",\n     \"available\": true\n    },\n    {\n     \"id\": \"ewan_brooks\",\n     \"name\": \"Ewan Brooks\",\n     \"role\": \"Finance business partner, Metro Central\",\n     \"relationship\": \"neutral\",\n     \"available\": true\n    },\n    {\n     \"id\": \"hannah_doyle\",\n     \"name\": \"Hannah Doyle\",\n     \"role\": \"Alliance procurement lead\",\n     \"relationship\": \"neutral\",\n     \"available\": true\n    }\n   ],\n   \"facts\": [\n    {\n     \"id\": \"km_usage_0\",\n     \"text\": \"We\u0027re flying all the time.\",\n     \"said_by\": \"Insp. Karen Mbeki\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 5\n    },\n    {\n     \"id\": \"km_usage_1\",\n     \"text\": \"14 of 18 docks flew last month, mostly patrol support and missing-person searches.\",\n     \"said_by\": \"Insp. Karen Mbeki\",\n     \"status\": \"verified\",\n     \"verified_by\": \"flight_log_force_month\",\n     \"learned_at_minute\": 5\n    },\n    {\n     \"id\": \"km_staff_2\",\n     \"text\": \"Six officers who also do other duties. Overtime is the main cost. Scaling to 30 docks needs nine more trained operators and shift cover.\",\n     \"said_by\": \"Insp. Karen Mbeki\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 7\n    },\n    {\n     \"id\": \"km_others_2\",\n     \"text\": \"Tarn Valley\u0027s data protection officer has not signed off. Norwold\u0027s chief constable is cautious after a local privacy row.\",\n     \"said_by\": \"Insp. Karen Mbeki\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 10\n    },\n    {\n     \"id\": \"rc_appetite_2\",\n     \"text\": \"Only Westmere and Metro Central fly operationally. Tarn Valley has never flown a live mission and Norwold only trains.\",\n     \"said_by\": \"Insp. Karen Mbeki\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 10\n    },\n    {\n     \"id\": \"rc_appetite_0\",\n     \"text\": \"All four forces are keen.\",\n     \"said_by\": \"Rhys Calder\",\n     \"status\": \"claim\",\n     \"learned_at_minute\": 14\n    },\n    {\n     \"id\": \"rc_funding_0\",\n     \"text\": \"The alliance has the budget.\",\n     \"said_by\": \"Rhys Calder\",\n     \"status\": \"claim\",\n     \"learned_at_minute\": 15\n    },\n    {\n     \"id\": \"rc_funding_2\",\n     \"text\": \"There is no pooled budget. Each force funds from its own budget and each chief finance officer must approve a call-off.\",\n     \"said_by\": \"Rhys Calder\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 15\n    },\n    {\n     \"id\": \"rc_tender_0\",\n     \"text\": \"A 300-dock framework tender, spec being finalised.\",\n     \"said_by\": \"Rhys Calder\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 17\n    },\n    {\n     \"id\": \"rc_tender_2\",\n     \"text\": \"The tender specification locks soon (see Deadlines). It has no costed operating model, and nobody has agreed who would fly 300 docks.\",\n     \"said_by\": \"Rhys Calder\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 17\n    },\n    {\n     \"id\": \"rc_stadium_0\",\n     \"text\": \"Westmere\u0027s stadium project is a 30-dock opportunity.\",\n     \"said_by\": \"Rhys Calder\",\n     \"status\": \"claim\",\n     \"learned_at_minute\": 19\n    },\n    {\n     \"id\": \"kb_stadium_view\",\n     \"text\": \"The superintendent thinks 30 docks is unrealistic with current staffing. Nobody has asked her.\",\n     \"said_by\": \"Insp. Karen Mbeki\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 20\n    },\n    {\n     \"id\": \"eb_heli_1\",\n     \"text\": \"A helicopter hour costs the force about 1,500 pounds all-in.\",\n     \"said_by\": \"Ewan Brooks\",\n     \"status\": \"verified\",\n     \"verified_by\": \"helicopter_cost_overtime\",\n     \"learned_at_minute\": 27\n    },\n    {\n     \"id\": \"eb_drone_2\",\n     \"text\": \"He has no comparable drone figure because overtime for drone operators is not tracked separately. He could pull it in a week.\",\n     \"said_by\": \"Ewan Brooks\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 29\n    },\n    {\n     \"id\": \"eb_sign_2\",\n     \"text\": \"His chief finance officer will sign a call-off only with a cost per flight set against helicopter hours.\",\n     \"said_by\": \"Ewan Brooks\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 29\n    },\n    {\n     \"id\": \"hd_calloff_2\",\n     \"text\": \"A force\u0027s call-off needs its own finance sign-off. The alliance cannot commit them.\",\n     \"said_by\": \"Ewan Brooks\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 29\n    },\n    {\n     \"id\": \"eb_window_2\",\n     \"text\": \"Metro Central bids in the autumn finance round. That window closes soon (see Deadlines).\",\n     \"said_by\": \"Ewan Brooks\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 30\n    },\n    {\n     \"id\": \"km_value_2\",\n     \"text\": \"Two missing-person finds in under 12 minutes against about 40 for the helicopter. These are anecdotes. Nobody has compared cost per flight.\",\n     \"said_by\": \"Insp. Karen Mbeki\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 37\n    },\n    {\n     \"id\": \"fo_dpia_0\",\n     \"text\": \"We are working through the assessment and it is not finished.\",\n     \"said_by\": \"Fatima Osei\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 42\n    },\n    {\n     \"id\": \"fo_dpia_2\",\n     \"text\": \"It cannot be signed until we receive the data-flow documents we asked the FlytBase support desk for four months ago. Nobody replied.\",\n     \"said_by\": \"Fatima Osei\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 42\n    },\n    {\n     \"id\": \"fo_needs_3\",\n     \"text\": \"With data flows, retention periods, video storage location and access controls I can finish in three weeks. Norwold is waiting to copy my assessment.\",\n     \"said_by\": \"Fatima Osei\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 44\n    },\n    {\n     \"id\": \"pj_ticket\",\n     \"text\": \"The Tarn Valley ticket asking for data-flow documents was logged four months ago and never answered. It sits in the support queue unassigned.\",\n     \"said_by\": \"Pranjal Suyal\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 56\n    },\n    {\n     \"id\": \"srv_dataflow\",\n     \"text\": \"Engineering can produce the data-flow pack (flows, retention, video storage location, access controls) in a week, with the CSM owning the ask: sending it, chasing it, answering the DPO.\",\n     \"said_by\": \"SRV\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 58\n    }\n   ],\n   \"opportunities\": [\n    {\n     \"id\": \"a_renewal\",\n     \"title\": \"Renew the alliance contract (35 docks)\",\n     \"stage\": \"qualified\",\n     \"worth_up_to\": 350000,\n     \"size\": null,\n     \"blocker\": {\n      \"text\": \"Nobody can show which forces actually use the docks\",\n      \"status\": \"open\"\n     },\n     \"evidence\": [\n      \"rc_appetite_0\",\n      \"rc_appetite_2\",\n      \"km_usage_1\",\n      \"km_value_2\",\n      \"flight_log_force_month\"\n     ],\n     \"deadline\": null\n    },\n    {\n     \"id\": \"a_tarn\",\n     \"title\": \"Tarn Valley and Norwold go live\",\n     \"stage\": \"qualified\",\n     \"worth_up_to\": 200000,\n     \"size\": null,\n     \"blocker\": {\n      \"text\": \"The DPIA cannot be signed without the data-flow documents FlytBase never sent\",\n      \"status\": \"open\"\n     },\n     \"evidence\": [\n      \"rc_appetite_2\",\n      \"km_others_2\",\n      \"fo_dpia_2\",\n      \"fo_needs_3\",\n      \"pj_ticket\",\n      \"srv_dataflow\",\n      \"support_ticket_history\"\n     ],\n     \"deadline\": null\n    },\n    {\n     \"id\": \"a_westmere\",\n     \"title\": \"Scale Westmere\u0027s fleet\",\n     \"stage\": \"qualified\",\n     \"worth_up_to\": 250000,\n     \"size\": null,\n     \"blocker\": {\n      \"text\": \"No cost per flight against helicopter hours\",\n      \"status\": \"open\"\n     },\n     \"evidence\": [\n      \"km_staff_2\",\n      \"km_value_2\",\n      \"eb_heli_1\",\n      \"eb_drone_2\",\n      \"eb_sign_2\",\n      \"helicopter_cost_overtime\",\n      \"flight_log_force_month\"\n     ],\n     \"deadline\": {\n      \"text\": \"Metro Central\u0027s finance bid window closes. Ewan can only bid for more docks if his blocker is cleared by then.\",\n      \"soon\": true,\n      \"passed\": true,\n      \"met\": false,\n      \"moves_left\": null\n     }\n    },\n    {\n     \"id\": \"a_tender\",\n     \"title\": \"Position for the 300-dock framework tender\",\n     \"stage\": \"qualified\",\n     \"worth_up_to\": 1500000,\n     \"size\": null,\n     \"blocker\": {\n      \"text\": \"The specification has no costed operating model\",\n      \"status\": \"open\"\n     },\n     \"evidence\": [\n      \"rc_tender_2\",\n      \"hd_calloff_2\",\n      \"rc_funding_2\",\n      \"eb_sign_2\",\n      \"km_staff_2\"\n     ],\n     \"deadline\": {\n      \"text\": \"The tender specification locks. Whatever is not in it by then is out.\",\n      \"soon\": true,\n      \"passed\": false,\n      \"met\": false,\n      \"moves_left\": null\n     }\n    }\n   ],\n   \"offers\": [\n    {\n     \"id\": \"a_priority_support\",\n     \"title\": \"Priority support for the drone units\",\n     \"value\": 60000,\n     \"pitch_to\": \"Insp. Karen Mbeki\",\n     \"status\": \"won\"\n    },\n    {\n     \"id\": \"a_training\",\n     \"title\": \"Operator training for new pilots\",\n     \"value\": 45000,\n     \"pitch_to\": \"Insp. Karen Mbeki\",\n     \"status\": \"won\"\n    },\n    {\n     \"id\": \"a_extra_docks\",\n     \"title\": \"Extra docks for Metro Central\",\n     \"value\": 180000,\n     \"pitch_to\": \"Ewan Brooks\",\n     \"status\": \"declined\"\n    }\n   ],\n   \"deadlines\": [\n    {\n     \"text\": \"Metro Central\u0027s finance bid window closes. Ewan can only bid for more docks if his blocker is cleared by then.\",\n     \"passed\": true\n    },\n    {\n     \"text\": \"The tender specification locks. Whatever is not in it by then is out.\",\n     \"passed\": false\n    }\n   ]\n  },\n  {\n   \"id\": \"B\",\n   \"name\": \"Aldermoor Industrial Group\",\n   \"official_story\": \"ROI proven. 15 plants, 14 docks installed, 13 flying. Case study for 40-plant sister company in preparation.\",\n   \"stakeholders\": [\n    {\n     \"id\": \"stefan_roy\",\n     \"name\": \"Stefan Roy\",\n     \"role\": \"Group head of security\",\n     \"relationship\": \"warm\",\n     \"available\": true\n    },\n    {\n     \"id\": \"beatriz_alonso\",\n     \"name\": \"Beatriz Alonso\",\n     \"role\": \"Plant manager, Plant 7\",\n     \"relationship\": \"guarded\",\n     \"available\": true\n    },\n    {\n     \"id\": \"owen_fitch\",\n     \"name\": \"Owen Fitch\",\n     \"role\": \"Group IT infrastructure lead\",\n     \"relationship\": \"warm\",\n     \"available\": true\n    },\n    {\n     \"id\": \"nadia_rahman\",\n     \"name\": \"Nadia Rahman\",\n     \"role\": \"Group finance controller\",\n     \"relationship\": \"warm\",\n     \"available\": true\n    },\n    {\n     \"id\": \"julian_tate\",\n     \"name\": \"Julian Tate\",\n     \"role\": \"Insurance and risk manager\",\n     \"relationship\": \"warm\",\n     \"available\": true\n    }\n   ],\n   \"facts\": [\n    {\n     \"id\": \"ba_use_0\",\n     \"text\": \"It\u0027s useful at night.\",\n     \"said_by\": \"Beatriz Alonso\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 68\n    },\n    {\n     \"id\": \"ba_use_2\",\n     \"text\": \"The dock flies nightly, but the plant\u0027s guard contractor does not act on drone alerts because their contract does not cover it. Alerts go to her phone.\",\n     \"said_by\": \"Beatriz Alonso\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 68\n    },\n    {\n     \"id\": \"ba_deputy_0\",\n     \"text\": \"Stefan\u0027s deputy, not Stefan, set up the Plant 7 dock and most of the others. He is the one who knows how a rollout is actually done.\",\n     \"said_by\": \"Beatriz Alonso\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 68\n    },\n    {\n     \"id\": \"ba_playbook_2\",\n     \"text\": \"She wrote an informal checklist: night patrol routes and alert response. Nobody asked for it and she would share it.\",\n     \"said_by\": \"Beatriz Alonso\",\n     \"status\": \"verified\",\n     \"verified_by\": \"plant7_checklist\",\n     \"learned_at_minute\": 71\n    },\n    {\n     \"id\": \"ba_other_1\",\n     \"text\": \"I hear Plant 11 never uses theirs. Their manager sees it as head office\u0027s toy and the network there is poor.\",\n     \"said_by\": \"Beatriz Alonso\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 72\n    },\n    {\n     \"id\": \"sr_repl_2\",\n     \"text\": \"The rollout template lives mostly in his deputy\u0027s head. The deputy leaves soon (see Deadlines), and nothing is written down.\",\n     \"said_by\": \"Beatriz Alonso\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 75\n    },\n    {\n     \"id\": \"sr_roi_0\",\n     \"text\": \"ROI is proven, about 1.2 million euros a year saved.\",\n     \"said_by\": \"Stefan Roy\",\n     \"status\": \"claim\",\n     \"learned_at_minute\": 80\n    },\n    {\n     \"id\": \"sr_roi_2\",\n     \"text\": \"The figure is his own spreadsheet of guard patrol hours the drones could replace. No guard contract has been reduced and finance has booked no saving.\",\n     \"said_by\": \"Stefan Roy\",\n     \"status\": \"verified\",\n     \"verified_by\": \"roi_spreadsheet\",\n     \"learned_at_minute\": 80\n    },\n    {\n     \"id\": \"sr_roll_0\",\n     \"text\": \"Thirteen of fifteen plants are flying.\",\n     \"said_by\": \"Stefan Roy\",\n     \"status\": \"claim\",\n     \"learned_at_minute\": 81\n    },\n    {\n     \"id\": \"sr_roll_2\",\n     \"text\": \"Four plants fly regularly. Nine only log test flights. Plant 15 has no dock.\",\n     \"said_by\": \"Stefan Roy\",\n     \"status\": \"verified\",\n     \"verified_by\": \"flight_log_by_plant\",\n     \"learned_at_minute\": 81\n    },\n    {\n     \"id\": \"sr_plants_2\",\n     \"text\": \"Plants pay a share of the security budget. Several managers resent paying for equipment they did not choose.\",\n     \"said_by\": \"Stefan Roy\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 83\n    },\n    {\n     \"id\": \"of_weak_1\",\n     \"text\": \"Plants 11 to 14 have weak links and he had no part in the installs.\",\n     \"said_by\": \"Owen Fitch\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 89\n    },\n    {\n     \"id\": \"of_seg_2\",\n     \"text\": \"A network segmentation project starts in four months and will cut the docks\u0027 connectivity unless exceptions are planned. Nobody has told him.\",\n     \"said_by\": \"Owen Fitch\",\n     \"status\": \"verified\",\n     \"verified_by\": \"network_plan\",\n     \"learned_at_minute\": 90\n    },\n    {\n     \"id\": \"of_offer_3\",\n     \"text\": \"He can give two days of a network engineer to build a pilot plan if asked with specifics.\",\n     \"said_by\": \"Owen Fitch\",\n     \"status\": \"verified\",\n     \"verified_by\": \"it_exception_template\",\n     \"learned_at_minute\": 91\n    },\n    {\n     \"id\": \"nr_cost_2\",\n     \"text\": \"Security costs are charged to plants through an annual allocation. The drones added cost and she sees no reduction in any guard contract. Nobody has shown her the 1.2 million figure.\",\n     \"said_by\": \"Nadia Rahman\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 99\n    },\n    {\n     \"id\": \"nr_evidence_2\",\n     \"text\": \"She would accept ROI built on measured changes: guard contract renewals (three renew within four months), the insurance premium and incident losses.\",\n     \"said_by\": \"Nadia Rahman\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 100\n    },\n    {\n     \"id\": \"nr_sister_1\",\n     \"text\": \"The 40-plant sister company is not her budget and she has no view on it.\",\n     \"said_by\": \"Nadia Rahman\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 102\n    },\n    {\n     \"id\": \"sr_case_3\",\n     \"text\": \"Every number comes from his spreadsheet and he has not shown it to finance.\",\n     \"said_by\": \"Nadia Rahman\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 102\n    },\n    {\n     \"id\": \"jt_prem_2\",\n     \"text\": \"The insurer cut premiums by 6% across nine plants, about 180,000 euros a year, citing the drone patrols. It is the only hard financial benefit and nobody in security asked him.\",\n     \"said_by\": \"Julian Tate\",\n     \"status\": \"verified\",\n     \"verified_by\": \"insurer_premium_letter\",\n     \"learned_at_minute\": 107\n    },\n    {\n     \"id\": \"jt_review_2\",\n     \"text\": \"The insurer\u0027s review is in five months. Consistent flight logs by plant would extend the discount, and plants with idle docks put it at risk.\",\n     \"said_by\": \"Julian Tate\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 108\n    },\n    {\n     \"id\": \"ba_cost_2\",\n     \"text\": \"The plant is charged an annual allocation it did not choose. She would still keep the dock after two attempted break-ins were deterred, which is anecdotal.\",\n     \"said_by\": \"Nadia Rahman\",\n     \"status\": \"told\",\n     \"learned_at_minute\": 145\n    }\n   ],\n   \"opportunities\": [\n    {\n     \"id\": \"b_renewal\",\n     \"title\": \"Renew the Aldermoor contract (14 docks)\",\n     \"stage\": \"qualified\",\n     \"worth_up_to\": 140000,\n     \"size\": null,\n     \"blocker\": {\n      \"text\": \"Finance cannot verify the savings the programme claims\",\n      \"status\": \"open\"\n     },\n     \"evidence\": [\n      \"sr_roll_0\",\n      \"sr_roll_2\",\n      \"ba_use_2\",\n      \"nr_cost_2\",\n      \"jt_prem_2\",\n      \"nr_evidence_2\"\n     ],\n     \"deadline\": null\n    },\n    {\n     \"id\": \"b_idle\",\n     \"title\": \"Bring the idle plants into regular patrol\",\n     \"stage\": \"qualified\",\n     \"worth_up_to\": 180000,\n     \"size\": null,\n     \"blocker\": {\n      \"text\": \"The network project will cut the docks off, and nobody owns adoption\",\n      \"status\": \"open\"\n     },\n     \"evidence\": [\n      \"sr_roll_2\",\n      \"ba_other_1\",\n      \"of_weak_1\",\n      \"ba_use_2\",\n      \"sr_plants_2\",\n      \"sr_repl_2\",\n      \"network_plan\",\n      \"plant7_checklist\",\n      \"of_offer_3\"\n     ],\n     \"deadline\": {\n      \"text\": \"Stefan\u0027s deputy leaves, and the rollout know-how with him unless it is written down first.\",\n      \"soon\": true,\n      \"passed\": true,\n      \"met\": false,\n      \"moves_left\": null\n     }\n    },\n    {\n     \"id\": \"b_insurance\",\n     \"title\": \"Protect and extend the insurance discount\",\n     \"stage\": \"qualified\",\n     \"worth_up_to\": 90000,\n     \"size\": null,\n     \"blocker\": {\n      \"text\": \"No consistent flight logs by plant for the insurer\u0027s review\",\n      \"status\": \"open\"\n     },\n     \"evidence\": [\n      \"jt_prem_2\",\n      \"jt_review_2\",\n      \"flight_log_by_plant\"\n     ],\n     \"deadline\": null\n    },\n    {\n     \"id\": \"b_sister\",\n     \"title\": \"Case study for the 40-plant sister company\",\n     \"stage\": \"qualified\",\n     \"worth_up_to\": 1200000,\n     \"size\": null,\n     \"blocker\": {\n      \"text\": \"Every number rests on an unverified spreadsheet\",\n      \"status\": \"open\"\n     },\n     \"evidence\": [\n      \"sr_roi_2\",\n      \"sr_case_3\",\n      \"jt_prem_2\",\n      \"nr_evidence_2\",\n      \"sr_roll_2\",\n      \"nr_sister_1\",\n      \"insurer_premium_letter\",\n      \"allocation_guard_summary\",\n      \"flight_log_by_plant\"\n     ],\n     \"deadline\": null\n    }\n   ],\n   \"offers\": [\n    {\n     \"id\": \"b_priority_support\",\n     \"title\": \"Night-time priority support for Plant 7\",\n     \"value\": 50000,\n     \"pitch_to\": \"Beatriz Alonso\",\n     \"status\": \"declined\"\n    },\n    {\n     \"id\": \"b_reporting\",\n     \"title\": \"Flight-log reporting by plant for finance and the insurer\",\n     \"value\": 70000,\n     \"pitch_to\": \"Nadia Rahman\",\n     \"status\": \"won\"\n    },\n    {\n     \"id\": \"b_more_plants\",\n     \"title\": \"Docks for Plant 15 and two idle plants\",\n     \"value\": 160000,\n     \"pitch_to\": \"Stefan Roy\",\n     \"status\": \"won\"\n    }\n   ],\n   \"deadlines\": [\n    {\n     \"text\": \"Stefan\u0027s deputy leaves, and the rollout know-how with him unless it is written down first.\",\n     \"passed\": true\n    }\n   ]\n  }\n ],\n \"files\": [\n  {\n   \"id\": \"flight_log_force_month\",\n   \"title\": \"Flight log force month\",\n   \"path\": \"files/flight_log_force_month.csv\",\n   \"account\": \"A\"\n  },\n  {\n   \"id\": \"helicopter_cost_overtime\",\n   \"title\": \"Helicopter cost overtime\",\n   \"path\": \"files/helicopter_cost_overtime.csv\",\n   \"account\": \"A\"\n  },\n  {\n   \"id\": \"support_ticket_history\",\n   \"title\": \"Support ticket history\",\n   \"path\": \"files/support_ticket_history.csv\",\n   \"account\": \"A\"\n  },\n  {\n   \"id\": \"plant7_checklist\",\n   \"title\": \"Plant7 checklist\",\n   \"path\": \"files/plant7_checklist.csv\",\n   \"account\": \"B\"\n  },\n  {\n   \"id\": \"roi_spreadsheet\",\n   \"title\": \"Roi spreadsheet\",\n   \"path\": \"files/roi_spreadsheet.csv\",\n   \"account\": \"B\"\n  },\n  {\n   \"id\": \"flight_log_by_plant\",\n   \"title\": \"Flight log by plant\",\n   \"path\": \"files/flight_log_by_plant.csv\",\n   \"account\": \"B\"\n  },\n  {\n   \"id\": \"network_plan\",\n   \"title\": \"Network plan\",\n   \"path\": \"files/network_plan.csv\",\n   \"account\": \"B\"\n  },\n  {\n   \"id\": \"it_exception_template\",\n   \"title\": \"It exception template\",\n   \"path\": \"files/it_exception_template.csv\",\n   \"account\": \"B\"\n  },\n  {\n   \"id\": \"allocation_guard_summary\",\n   \"title\": \"Allocation guard summary\",\n   \"path\": \"files/allocation_guard_summary.csv\",\n   \"account\": \"B\"\n  },\n  {\n   \"id\": \"insurer_premium_letter\",\n   \"title\": \"Insurer premium letter\",\n   \"path\": \"files/insurer_premium_letter.csv\",\n   \"account\": \"B\"\n  }\n ]\n}"
-                                   }
-                               ],
-                   "isError":  false
-               }
+﻿{
+    "format":  "account-quest-v2-export/1",
+    "player":  "e747fdf3-1fe2-4d6d-80f0-ac1255f3a28e",
+    "exported_at":  "2026-11-14T09:04:29.351Z",
+    "minute":  150,
+    "world_closed":  true,
+    "accounts":  [
+                     {
+                         "id":  "A",
+                         "name":  "Eastern Counties Police Alliance",
+                         "official_story":  "Rollout under way. 4 forces, 35 docks, 300-dock framework tender in preparation.",
+                         "stakeholders":  [
+                                              {
+                                                  "id":  "rhys_calder",
+                                                  "name":  "Rhys Calder",
+                                                  "role":  "Alliance drone programme lead",
+                                                  "relationship":  "ally",
+                                                  "available":  true
+                                              },
+                                              {
+                                                  "id":  "karen_mbeki",
+                                                  "name":  "Insp. Karen Mbeki",
+                                                  "role":  "Drone unit inspector, Westmere",
+                                                  "relationship":  "warm",
+                                                  "available":  true
+                                              },
+                                              {
+                                                  "id":  "fatima_osei",
+                                                  "name":  "Fatima Osei",
+                                                  "role":  "Data protection officer, Tarn Valley",
+                                                  "relationship":  "neutral",
+                                                  "available":  true
+                                              },
+                                              {
+                                                  "id":  "ewan_brooks",
+                                                  "name":  "Ewan Brooks",
+                                                  "role":  "Finance business partner, Metro Central",
+                                                  "relationship":  "neutral",
+                                                  "available":  true
+                                              },
+                                              {
+                                                  "id":  "hannah_doyle",
+                                                  "name":  "Hannah Doyle",
+                                                  "role":  "Alliance procurement lead",
+                                                  "relationship":  "neutral",
+                                                  "available":  true
+                                              }
+                                          ],
+                         "facts":  [
+                                       {
+                                           "id":  "km_usage_0",
+                                           "text":  "We\u0027re flying all the time.",
+                                           "said_by":  "Insp. Karen Mbeki",
+                                           "status":  "told",
+                                           "learned_at_minute":  5
+                                       },
+                                       {
+                                           "id":  "km_usage_1",
+                                           "text":  "14 of 18 docks flew last month, mostly patrol support and missing-person searches.",
+                                           "said_by":  "Insp. Karen Mbeki",
+                                           "status":  "verified",
+                                           "verified_by":  "flight_log_force_month",
+                                           "learned_at_minute":  5
+                                       },
+                                       {
+                                           "id":  "km_staff_2",
+                                           "text":  "Six officers who also do other duties. Overtime is the main cost. Scaling to 30 docks needs nine more trained operators and shift cover.",
+                                           "said_by":  "Insp. Karen Mbeki",
+                                           "status":  "told",
+                                           "learned_at_minute":  7
+                                       },
+                                       {
+                                           "id":  "km_others_2",
+                                           "text":  "Tarn Valley\u0027s data protection officer has not signed off. Norwold\u0027s chief constable is cautious after a local privacy row.",
+                                           "said_by":  "Insp. Karen Mbeki",
+                                           "status":  "told",
+                                           "learned_at_minute":  10
+                                       },
+                                       {
+                                           "id":  "rc_appetite_2",
+                                           "text":  "Only Westmere and Metro Central fly operationally. Tarn Valley has never flown a live mission and Norwold only trains.",
+                                           "said_by":  "Insp. Karen Mbeki",
+                                           "status":  "told",
+                                           "learned_at_minute":  10
+                                       },
+                                       {
+                                           "id":  "rc_appetite_0",
+                                           "text":  "All four forces are keen.",
+                                           "said_by":  "Rhys Calder",
+                                           "status":  "claim",
+                                           "learned_at_minute":  14
+                                       },
+                                       {
+                                           "id":  "rc_funding_0",
+                                           "text":  "The alliance has the budget.",
+                                           "said_by":  "Rhys Calder",
+                                           "status":  "claim",
+                                           "learned_at_minute":  15
+                                       },
+                                       {
+                                           "id":  "rc_funding_2",
+                                           "text":  "There is no pooled budget. Each force funds from its own budget and each chief finance officer must approve a call-off.",
+                                           "said_by":  "Rhys Calder",
+                                           "status":  "told",
+                                           "learned_at_minute":  15
+                                       },
+                                       {
+                                           "id":  "rc_tender_0",
+                                           "text":  "A 300-dock framework tender, spec being finalised.",
+                                           "said_by":  "Rhys Calder",
+                                           "status":  "told",
+                                           "learned_at_minute":  17
+                                       },
+                                       {
+                                           "id":  "rc_tender_2",
+                                           "text":  "The tender specification locks soon (see Deadlines). It has no costed operating model, and nobody has agreed who would fly 300 docks.",
+                                           "said_by":  "Rhys Calder",
+                                           "status":  "told",
+                                           "learned_at_minute":  17
+                                       },
+                                       {
+                                           "id":  "rc_stadium_0",
+                                           "text":  "Westmere\u0027s stadium project is a 30-dock opportunity.",
+                                           "said_by":  "Rhys Calder",
+                                           "status":  "claim",
+                                           "learned_at_minute":  19
+                                       },
+                                       {
+                                           "id":  "kb_stadium_view",
+                                           "text":  "The superintendent thinks 30 docks is unrealistic with current staffing. Nobody has asked her.",
+                                           "said_by":  "Insp. Karen Mbeki",
+                                           "status":  "told",
+                                           "learned_at_minute":  20
+                                       },
+                                       {
+                                           "id":  "eb_heli_1",
+                                           "text":  "A helicopter hour costs the force about 1,500 pounds all-in.",
+                                           "said_by":  "Ewan Brooks",
+                                           "status":  "verified",
+                                           "verified_by":  "helicopter_cost_overtime",
+                                           "learned_at_minute":  27
+                                       },
+                                       {
+                                           "id":  "eb_drone_2",
+                                           "text":  "He has no comparable drone figure because overtime for drone operators is not tracked separately. He could pull it in a week.",
+                                           "said_by":  "Ewan Brooks",
+                                           "status":  "told",
+                                           "learned_at_minute":  29
+                                       },
+                                       {
+                                           "id":  "eb_sign_2",
+                                           "text":  "His chief finance officer will sign a call-off only with a cost per flight set against helicopter hours.",
+                                           "said_by":  "Ewan Brooks",
+                                           "status":  "told",
+                                           "learned_at_minute":  29
+                                       },
+                                       {
+                                           "id":  "hd_calloff_2",
+                                           "text":  "A force\u0027s call-off needs its own finance sign-off. The alliance cannot commit them.",
+                                           "said_by":  "Ewan Brooks",
+                                           "status":  "told",
+                                           "learned_at_minute":  29
+                                       },
+                                       {
+                                           "id":  "eb_window_2",
+                                           "text":  "Metro Central bids in the autumn finance round. That window closes soon (see Deadlines).",
+                                           "said_by":  "Ewan Brooks",
+                                           "status":  "told",
+                                           "learned_at_minute":  30
+                                       },
+                                       {
+                                           "id":  "km_value_2",
+                                           "text":  "Two missing-person finds in under 12 minutes against about 40 for the helicopter. These are anecdotes. Nobody has compared cost per flight.",
+                                           "said_by":  "Insp. Karen Mbeki",
+                                           "status":  "told",
+                                           "learned_at_minute":  37
+                                       },
+                                       {
+                                           "id":  "fo_dpia_0",
+                                           "text":  "We are working through the assessment and it is not finished.",
+                                           "said_by":  "Fatima Osei",
+                                           "status":  "told",
+                                           "learned_at_minute":  42
+                                       },
+                                       {
+                                           "id":  "fo_dpia_2",
+                                           "text":  "It cannot be signed until we receive the data-flow documents we asked the FlytBase support desk for four months ago. Nobody replied.",
+                                           "said_by":  "Fatima Osei",
+                                           "status":  "told",
+                                           "learned_at_minute":  42
+                                       },
+                                       {
+                                           "id":  "fo_needs_3",
+                                           "text":  "With data flows, retention periods, video storage location and access controls I can finish in three weeks. Norwold is waiting to copy my assessment.",
+                                           "said_by":  "Fatima Osei",
+                                           "status":  "told",
+                                           "learned_at_minute":  44
+                                       },
+                                       {
+                                           "id":  "pj_ticket",
+                                           "text":  "The Tarn Valley ticket asking for data-flow documents was logged four months ago and never answered. It sits in the support queue unassigned.",
+                                           "said_by":  "Pranjal Suyal",
+                                           "status":  "told",
+                                           "learned_at_minute":  56
+                                       },
+                                       {
+                                           "id":  "srv_dataflow",
+                                           "text":  "Engineering can produce the data-flow pack (flows, retention, video storage location, access controls) in a week, with the CSM owning the ask: sending it, chasing it, answering the DPO.",
+                                           "said_by":  "SRV",
+                                           "status":  "told",
+                                           "learned_at_minute":  58
+                                       }
+                                   ],
+                         "opportunities":  [
+                                               {
+                                                   "id":  "a_renewal",
+                                                   "title":  "Renew the alliance contract (35 docks)",
+                                                   "stage":  "qualified",
+                                                   "worth_up_to":  350000,
+                                                   "size":  null,
+                                                   "blocker":  {
+                                                                   "text":  "Nobody can show which forces actually use the docks",
+                                                                   "status":  "open"
+                                                               },
+                                                   "evidence":  [
+                                                                    "rc_appetite_0",
+                                                                    "rc_appetite_2",
+                                                                    "km_usage_1",
+                                                                    "km_value_2",
+                                                                    "flight_log_force_month"
+                                                                ],
+                                                   "deadline":  null
+                                               },
+                                               {
+                                                   "id":  "a_tarn",
+                                                   "title":  "Tarn Valley and Norwold go live",
+                                                   "stage":  "qualified",
+                                                   "worth_up_to":  200000,
+                                                   "size":  null,
+                                                   "blocker":  {
+                                                                   "text":  "The DPIA cannot be signed without the data-flow documents FlytBase never sent",
+                                                                   "status":  "open"
+                                                               },
+                                                   "evidence":  [
+                                                                    "rc_appetite_2",
+                                                                    "km_others_2",
+                                                                    "fo_dpia_2",
+                                                                    "fo_needs_3",
+                                                                    "pj_ticket",
+                                                                    "srv_dataflow",
+                                                                    "support_ticket_history"
+                                                                ],
+                                                   "deadline":  null
+                                               },
+                                               {
+                                                   "id":  "a_westmere",
+                                                   "title":  "Scale Westmere\u0027s fleet",
+                                                   "stage":  "qualified",
+                                                   "worth_up_to":  250000,
+                                                   "size":  null,
+                                                   "blocker":  {
+                                                                   "text":  "No cost per flight against helicopter hours",
+                                                                   "status":  "open"
+                                                               },
+                                                   "evidence":  [
+                                                                    "km_staff_2",
+                                                                    "km_value_2",
+                                                                    "eb_heli_1",
+                                                                    "eb_drone_2",
+                                                                    "eb_sign_2",
+                                                                    "helicopter_cost_overtime",
+                                                                    "flight_log_force_month"
+                                                                ],
+                                                   "deadline":  {
+                                                                    "text":  "Metro Central\u0027s finance bid window closes. Ewan can only bid for more docks if his blocker is cleared by then.",
+                                                                    "soon":  true,
+                                                                    "passed":  true,
+                                                                    "met":  false,
+                                                                    "moves_left":  null
+                                                                }
+                                               },
+                                               {
+                                                   "id":  "a_tender",
+                                                   "title":  "Position for the 300-dock framework tender",
+                                                   "stage":  "qualified",
+                                                   "worth_up_to":  1500000,
+                                                   "size":  null,
+                                                   "blocker":  {
+                                                                   "text":  "The specification has no costed operating model",
+                                                                   "status":  "open"
+                                                               },
+                                                   "evidence":  [
+                                                                    "rc_tender_2",
+                                                                    "hd_calloff_2",
+                                                                    "rc_funding_2",
+                                                                    "eb_sign_2",
+                                                                    "km_staff_2"
+                                                                ],
+                                                   "deadline":  {
+                                                                    "text":  "The tender specification locks. Whatever is not in it by then is out.",
+                                                                    "soon":  true,
+                                                                    "passed":  false,
+                                                                    "met":  false,
+                                                                    "moves_left":  null
+                                                                }
+                                               }
+                                           ],
+                         "offers":  [
+                                        {
+                                            "id":  "a_priority_support",
+                                            "title":  "Priority support for the drone units",
+                                            "value":  60000,
+                                            "pitch_to":  "Insp. Karen Mbeki",
+                                            "status":  "won"
+                                        },
+                                        {
+                                            "id":  "a_training",
+                                            "title":  "Operator training for new pilots",
+                                            "value":  45000,
+                                            "pitch_to":  "Insp. Karen Mbeki",
+                                            "status":  "won"
+                                        },
+                                        {
+                                            "id":  "a_extra_docks",
+                                            "title":  "Extra docks for Metro Central",
+                                            "value":  180000,
+                                            "pitch_to":  "Ewan Brooks",
+                                            "status":  "declined"
+                                        }
+                                    ],
+                         "deadlines":  [
+                                           {
+                                               "text":  "Metro Central\u0027s finance bid window closes. Ewan can only bid for more docks if his blocker is cleared by then.",
+                                               "passed":  true
+                                           },
+                                           {
+                                               "text":  "The tender specification locks. Whatever is not in it by then is out.",
+                                               "passed":  false
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "B",
+                         "name":  "Aldermoor Industrial Group",
+                         "official_story":  "ROI proven. 15 plants, 14 docks installed, 13 flying. Case study for 40-plant sister company in preparation.",
+                         "stakeholders":  [
+                                              {
+                                                  "id":  "stefan_roy",
+                                                  "name":  "Stefan Roy",
+                                                  "role":  "Group head of security",
+                                                  "relationship":  "warm",
+                                                  "available":  true
+                                              },
+                                              {
+                                                  "id":  "beatriz_alonso",
+                                                  "name":  "Beatriz Alonso",
+                                                  "role":  "Plant manager, Plant 7",
+                                                  "relationship":  "guarded",
+                                                  "available":  true
+                                              },
+                                              {
+                                                  "id":  "owen_fitch",
+                                                  "name":  "Owen Fitch",
+                                                  "role":  "Group IT infrastructure lead",
+                                                  "relationship":  "warm",
+                                                  "available":  true
+                                              },
+                                              {
+                                                  "id":  "nadia_rahman",
+                                                  "name":  "Nadia Rahman",
+                                                  "role":  "Group finance controller",
+                                                  "relationship":  "warm",
+                                                  "available":  true
+                                              },
+                                              {
+                                                  "id":  "julian_tate",
+                                                  "name":  "Julian Tate",
+                                                  "role":  "Insurance and risk manager",
+                                                  "relationship":  "warm",
+                                                  "available":  true
+                                              }
+                                          ],
+                         "facts":  [
+                                       {
+                                           "id":  "ba_use_0",
+                                           "text":  "It\u0027s useful at night.",
+                                           "said_by":  "Beatriz Alonso",
+                                           "status":  "told",
+                                           "learned_at_minute":  68
+                                       },
+                                       {
+                                           "id":  "ba_use_2",
+                                           "text":  "The dock flies nightly, but the plant\u0027s guard contractor does not act on drone alerts because their contract does not cover it. Alerts go to her phone.",
+                                           "said_by":  "Beatriz Alonso",
+                                           "status":  "told",
+                                           "learned_at_minute":  68
+                                       },
+                                       {
+                                           "id":  "ba_deputy_0",
+                                           "text":  "Stefan\u0027s deputy, not Stefan, set up the Plant 7 dock and most of the others. He is the one who knows how a rollout is actually done.",
+                                           "said_by":  "Beatriz Alonso",
+                                           "status":  "told",
+                                           "learned_at_minute":  68
+                                       },
+                                       {
+                                           "id":  "ba_playbook_2",
+                                           "text":  "She wrote an informal checklist: night patrol routes and alert response. Nobody asked for it and she would share it.",
+                                           "said_by":  "Beatriz Alonso",
+                                           "status":  "verified",
+                                           "verified_by":  "plant7_checklist",
+                                           "learned_at_minute":  71
+                                       },
+                                       {
+                                           "id":  "ba_other_1",
+                                           "text":  "I hear Plant 11 never uses theirs. Their manager sees it as head office\u0027s toy and the network there is poor.",
+                                           "said_by":  "Beatriz Alonso",
+                                           "status":  "told",
+                                           "learned_at_minute":  72
+                                       },
+                                       {
+                                           "id":  "sr_repl_2",
+                                           "text":  "The rollout template lives mostly in his deputy\u0027s head. The deputy leaves soon (see Deadlines), and nothing is written down.",
+                                           "said_by":  "Beatriz Alonso",
+                                           "status":  "told",
+                                           "learned_at_minute":  75
+                                       },
+                                       {
+                                           "id":  "sr_roi_0",
+                                           "text":  "ROI is proven, about 1.2 million euros a year saved.",
+                                           "said_by":  "Stefan Roy",
+                                           "status":  "claim",
+                                           "learned_at_minute":  80
+                                       },
+                                       {
+                                           "id":  "sr_roi_2",
+                                           "text":  "The figure is his own spreadsheet of guard patrol hours the drones could replace. No guard contract has been reduced and finance has booked no saving.",
+                                           "said_by":  "Stefan Roy",
+                                           "status":  "verified",
+                                           "verified_by":  "roi_spreadsheet",
+                                           "learned_at_minute":  80
+                                       },
+                                       {
+                                           "id":  "sr_roll_0",
+                                           "text":  "Thirteen of fifteen plants are flying.",
+                                           "said_by":  "Stefan Roy",
+                                           "status":  "claim",
+                                           "learned_at_minute":  81
+                                       },
+                                       {
+                                           "id":  "sr_roll_2",
+                                           "text":  "Four plants fly regularly. Nine only log test flights. Plant 15 has no dock.",
+                                           "said_by":  "Stefan Roy",
+                                           "status":  "verified",
+                                           "verified_by":  "flight_log_by_plant",
+                                           "learned_at_minute":  81
+                                       },
+                                       {
+                                           "id":  "sr_plants_2",
+                                           "text":  "Plants pay a share of the security budget. Several managers resent paying for equipment they did not choose.",
+                                           "said_by":  "Stefan Roy",
+                                           "status":  "told",
+                                           "learned_at_minute":  83
+                                       },
+                                       {
+                                           "id":  "of_weak_1",
+                                           "text":  "Plants 11 to 14 have weak links and he had no part in the installs.",
+                                           "said_by":  "Owen Fitch",
+                                           "status":  "told",
+                                           "learned_at_minute":  89
+                                       },
+                                       {
+                                           "id":  "of_seg_2",
+                                           "text":  "A network segmentation project starts in four months and will cut the docks\u0027 connectivity unless exceptions are planned. Nobody has told him.",
+                                           "said_by":  "Owen Fitch",
+                                           "status":  "verified",
+                                           "verified_by":  "network_plan",
+                                           "learned_at_minute":  90
+                                       },
+                                       {
+                                           "id":  "of_offer_3",
+                                           "text":  "He can give two days of a network engineer to build a pilot plan if asked with specifics.",
+                                           "said_by":  "Owen Fitch",
+                                           "status":  "verified",
+                                           "verified_by":  "it_exception_template",
+                                           "learned_at_minute":  91
+                                       },
+                                       {
+                                           "id":  "nr_cost_2",
+                                           "text":  "Security costs are charged to plants through an annual allocation. The drones added cost and she sees no reduction in any guard contract. Nobody has shown her the 1.2 million figure.",
+                                           "said_by":  "Nadia Rahman",
+                                           "status":  "told",
+                                           "learned_at_minute":  99
+                                       },
+                                       {
+                                           "id":  "nr_evidence_2",
+                                           "text":  "She would accept ROI built on measured changes: guard contract renewals (three renew within four months), the insurance premium and incident losses.",
+                                           "said_by":  "Nadia Rahman",
+                                           "status":  "told",
+                                           "learned_at_minute":  100
+                                       },
+                                       {
+                                           "id":  "nr_sister_1",
+                                           "text":  "The 40-plant sister company is not her budget and she has no view on it.",
+                                           "said_by":  "Nadia Rahman",
+                                           "status":  "told",
+                                           "learned_at_minute":  102
+                                       },
+                                       {
+                                           "id":  "sr_case_3",
+                                           "text":  "Every number comes from his spreadsheet and he has not shown it to finance.",
+                                           "said_by":  "Nadia Rahman",
+                                           "status":  "told",
+                                           "learned_at_minute":  102
+                                       },
+                                       {
+                                           "id":  "jt_prem_2",
+                                           "text":  "The insurer cut premiums by 6% across nine plants, about 180,000 euros a year, citing the drone patrols. It is the only hard financial benefit and nobody in security asked him.",
+                                           "said_by":  "Julian Tate",
+                                           "status":  "verified",
+                                           "verified_by":  "insurer_premium_letter",
+                                           "learned_at_minute":  107
+                                       },
+                                       {
+                                           "id":  "jt_review_2",
+                                           "text":  "The insurer\u0027s review is in five months. Consistent flight logs by plant would extend the discount, and plants with idle docks put it at risk.",
+                                           "said_by":  "Julian Tate",
+                                           "status":  "told",
+                                           "learned_at_minute":  108
+                                       },
+                                       {
+                                           "id":  "ba_cost_2",
+                                           "text":  "The plant is charged an annual allocation it did not choose. She would still keep the dock after two attempted break-ins were deterred, which is anecdotal.",
+                                           "said_by":  "Nadia Rahman",
+                                           "status":  "told",
+                                           "learned_at_minute":  145
+                                       }
+                                   ],
+                         "opportunities":  [
+                                               {
+                                                   "id":  "b_renewal",
+                                                   "title":  "Renew the Aldermoor contract (14 docks)",
+                                                   "stage":  "qualified",
+                                                   "worth_up_to":  140000,
+                                                   "size":  null,
+                                                   "blocker":  {
+                                                                   "text":  "Finance cannot verify the savings the programme claims",
+                                                                   "status":  "open"
+                                                               },
+                                                   "evidence":  [
+                                                                    "sr_roll_0",
+                                                                    "sr_roll_2",
+                                                                    "ba_use_2",
+                                                                    "nr_cost_2",
+                                                                    "jt_prem_2",
+                                                                    "nr_evidence_2"
+                                                                ],
+                                                   "deadline":  null
+                                               },
+                                               {
+                                                   "id":  "b_idle",
+                                                   "title":  "Bring the idle plants into regular patrol",
+                                                   "stage":  "qualified",
+                                                   "worth_up_to":  180000,
+                                                   "size":  null,
+                                                   "blocker":  {
+                                                                   "text":  "The network project will cut the docks off, and nobody owns adoption",
+                                                                   "status":  "open"
+                                                               },
+                                                   "evidence":  [
+                                                                    "sr_roll_2",
+                                                                    "ba_other_1",
+                                                                    "of_weak_1",
+                                                                    "ba_use_2",
+                                                                    "sr_plants_2",
+                                                                    "sr_repl_2",
+                                                                    "network_plan",
+                                                                    "plant7_checklist",
+                                                                    "of_offer_3"
+                                                                ],
+                                                   "deadline":  {
+                                                                    "text":  "Stefan\u0027s deputy leaves, and the rollout know-how with him unless it is written down first.",
+                                                                    "soon":  true,
+                                                                    "passed":  true,
+                                                                    "met":  false,
+                                                                    "moves_left":  null
+                                                                }
+                                               },
+                                               {
+                                                   "id":  "b_insurance",
+                                                   "title":  "Protect and extend the insurance discount",
+                                                   "stage":  "qualified",
+                                                   "worth_up_to":  90000,
+                                                   "size":  null,
+                                                   "blocker":  {
+                                                                   "text":  "No consistent flight logs by plant for the insurer\u0027s review",
+                                                                   "status":  "open"
+                                                               },
+                                                   "evidence":  [
+                                                                    "jt_prem_2",
+                                                                    "jt_review_2",
+                                                                    "flight_log_by_plant"
+                                                                ],
+                                                   "deadline":  null
+                                               },
+                                               {
+                                                   "id":  "b_sister",
+                                                   "title":  "Case study for the 40-plant sister company",
+                                                   "stage":  "qualified",
+                                                   "worth_up_to":  1200000,
+                                                   "size":  null,
+                                                   "blocker":  {
+                                                                   "text":  "Every number rests on an unverified spreadsheet",
+                                                                   "status":  "open"
+                                                               },
+                                                   "evidence":  [
+                                                                    "sr_roi_2",
+                                                                    "sr_case_3",
+                                                                    "jt_prem_2",
+                                                                    "nr_evidence_2",
+                                                                    "sr_roll_2",
+                                                                    "nr_sister_1",
+                                                                    "insurer_premium_letter",
+                                                                    "allocation_guard_summary",
+                                                                    "flight_log_by_plant"
+                                                                ],
+                                                   "deadline":  null
+                                               }
+                                           ],
+                         "offers":  [
+                                        {
+                                            "id":  "b_priority_support",
+                                            "title":  "Night-time priority support for Plant 7",
+                                            "value":  50000,
+                                            "pitch_to":  "Beatriz Alonso",
+                                            "status":  "declined"
+                                        },
+                                        {
+                                            "id":  "b_reporting",
+                                            "title":  "Flight-log reporting by plant for finance and the insurer",
+                                            "value":  70000,
+                                            "pitch_to":  "Nadia Rahman",
+                                            "status":  "won"
+                                        },
+                                        {
+                                            "id":  "b_more_plants",
+                                            "title":  "Docks for Plant 15 and two idle plants",
+                                            "value":  160000,
+                                            "pitch_to":  "Stefan Roy",
+                                            "status":  "won"
+                                        }
+                                    ],
+                         "deadlines":  [
+                                           {
+                                               "text":  "Stefan\u0027s deputy leaves, and the rollout know-how with him unless it is written down first.",
+                                               "passed":  true
+                                           }
+                                       ]
+                     },
+                     {
+                         "id":  "K",
+                         "name":  "Kestrel Estates",
+                         "official_story":  "1 dock paid, 0 flying. Waiting on go-live.",
+                         "stakeholders":  [
+                                              {
+                                                  "id":  "k_dana_hnz",
+                                                  "name":  "Dana Whitfield",
+                                                  "role":  "Estate manager",
+                                                  "relationship":  "warm",
+                                                  "available":  true
+                                              },
+                                              {
+                                                  "id":  "k_graham_hnz",
+                                                  "name":  "Graham Okafor",
+                                                  "role":  "Chair, residents\u0027 board",
+                                                  "relationship":  "neutral",
+                                                  "available":  true
+                                              },
+                                              {
+                                                  "id":  "k_lucy_hnz",
+                                                  "name":  "Lucy Pratt",
+                                                  "role":  "Insurance broker",
+                                                  "relationship":  "neutral",
+                                                  "available":  true
+                                              }
+                                          ],
+                         "facts":  [
+                                       {
+                                           "id":  "k_keen_hnz",
+                                           "text":  "Everyone here is excited. We are just waiting to go live.",
+                                           "said_by":  "Dana Whitfield",
+                                           "status":  "claim",
+                                           "learned_at_minute":  -50
+                                       },
+                                       {
+                                           "id":  "k_installer_gone_hnz",
+                                           "text":  "A local installer put the dock in, then moved on. He no longer answers calls.",
+                                           "said_by":  "Dana Whitfield",
+                                           "status":  "told",
+                                           "learned_at_minute":  -45
+                                       },
+                                       {
+                                           "id":  "k_not_commissioned_hnz",
+                                           "text":  "Power and network were tested at install, but no test flight was done because there was no certified pilot on site.",
+                                           "said_by":  "Dana Whitfield",
+                                           "status":  "verified",
+                                           "verified_by":  "K_install_note_hnz",
+                                           "learned_at_minute":  -40
+                                       },
+                                       {
+                                           "id":  "k_no_pilot_hnz",
+                                           "text":  "Nobody at the estate holds a drone pilot certificate. Dana assumed the system flies itself once switched on.",
+                                           "said_by":  "Dana Whitfield",
+                                           "status":  "told",
+                                           "learned_at_minute":  -38
+                                       },
+                                       {
+                                           "id":  "k_insurer_not_told_hnz",
+                                           "text":  "The property insurance requires any new aerial equipment to be notified before use. The dock is not declared.",
+                                           "said_by":  "Lucy Pratt",
+                                           "status":  "verified",
+                                           "verified_by":  "K_insurance_schedule_hnz",
+                                           "learned_at_minute":  -30
+                                       },
+                                       {
+                                           "id":  "k_need_entrances_hnz",
+                                           "text":  "What the estate needs is night patrol of the two entrances. The sales pitch was about mapping the whole estate, which they do not need.",
+                                           "said_by":  "Dana Whitfield",
+                                           "status":  "told",
+                                           "learned_at_minute":  -25
+                                       },
+                                       {
+                                           "id":  "k_board_pays_hnz",
+                                           "text":  "Any spend beyond the original purchase needs a vote of the residents\u0027 board, which meets on the first Monday of each month.",
+                                           "said_by":  "Graham Okafor",
+                                           "status":  "told",
+                                           "learned_at_minute":  -20
+                                       },
+                                       {
+                                           "id":  "k_board_doubts_hnz",
+                                           "text":  "Some residents already ask why they paid for a drone that has never flown.",
+                                           "said_by":  "Graham Okafor",
+                                           "status":  "told",
+                                           "learned_at_minute":  -18
+                                       },
+                                       {
+                                           "id":  "k_south_unassessed_hnz",
+                                           "text":  "The south entrance was raised at install but never assessed for coverage.",
+                                           "said_by":  "Dana Whitfield",
+                                           "status":  "verified",
+                                           "verified_by":  "K_install_note_hnz",
+                                           "learned_at_minute":  -15
+                                       },
+                                       {
+                                           "id":  "k_south_wish_hnz",
+                                           "text":  "If it works at the north gate, Dana would like a second dock for the south entrance.",
+                                           "said_by":  "Dana Whitfield",
+                                           "status":  "claim",
+                                           "learned_at_minute":  -10
+                                       }
+                                   ],
+                         "opportunities":  [
+                                               {
+                                                   "id":  "k_golive_hnz",
+                                                   "title":  "Get the north-entrance dock flying night patrols",
+                                                   "stage":  "qualified",
+                                                   "worth_up_to":  14000,
+                                                   "size":  null,
+                                                   "blocker":  {
+                                                                   "text":  "Nobody can fly it: no certified pilot, never commissioned, and the insurer has not been told",
+                                                                   "status":  "open"
+                                                               },
+                                                   "evidence":  [
+                                                                    "k_not_commissioned_hnz",
+                                                                    "k_no_pilot_hnz",
+                                                                    "k_insurer_not_told_hnz",
+                                                                    "k_need_entrances_hnz",
+                                                                    "k_installer_gone_hnz",
+                                                                    "k_board_pays_hnz",
+                                                                    "k_board_doubts_hnz",
+                                                                    "K_install_note_hnz",
+                                                                    "K_insurance_schedule_hnz"
+                                                                ],
+                                                   "deadline":  {
+                                                                    "text":  "Board meeting: residents vote on renewing the security budget",
+                                                                    "minute":  4320
+                                                                }
+                                               },
+                                               {
+                                                   "id":  "k_south_hnz",
+                                                   "title":  "Second dock for the south entrance",
+                                                   "stage":  "identified",
+                                                   "worth_up_to":  null,
+                                                   "size":  null,
+                                                   "blocker":  null,
+                                                   "evidence":  [
+                                                                    "k_south_wish_hnz",
+                                                                    "k_south_unassessed_hnz"
+                                                                ],
+                                                   "deadline":  null
+                                               }
+                                           ],
+                         "offers":  [
+                                        {
+                                            "id":  "k_training_hnz",
+                                            "title":  "Pilot certification course for two estate staff",
+                                            "value":  4000,
+                                            "pitch_to":  "Dana Whitfield",
+                                            "status":  "open"
+                                        }
+                                    ],
+                         "deadlines":  [
+                                           {
+                                               "text":  "Go-live plan promised to Dana",
+                                               "minute":  2880,
+                                               "passed":  false
+                                           },
+                                           {
+                                               "text":  "Board meeting: residents vote on renewing the security budget",
+                                               "minute":  4320,
+                                               "passed":  false
+                                           }
+                                       ]
+                     }
+                 ],
+    "files":  [
+                  {
+                      "id":  "flight_log_force_month",
+                      "title":  "Flight log force month",
+                      "path":  "files/flight_log_force_month.csv",
+                      "account":  "A"
+                  },
+                  {
+                      "id":  "helicopter_cost_overtime",
+                      "title":  "Helicopter cost overtime",
+                      "path":  "files/helicopter_cost_overtime.csv",
+                      "account":  "A"
+                  },
+                  {
+                      "id":  "support_ticket_history",
+                      "title":  "Support ticket history",
+                      "path":  "files/support_ticket_history.csv",
+                      "account":  "A"
+                  },
+                  {
+                      "id":  "plant7_checklist",
+                      "title":  "Plant7 checklist",
+                      "path":  "files/plant7_checklist.csv",
+                      "account":  "B"
+                  },
+                  {
+                      "id":  "roi_spreadsheet",
+                      "title":  "Roi spreadsheet",
+                      "path":  "files/roi_spreadsheet.csv",
+                      "account":  "B"
+                  },
+                  {
+                      "id":  "flight_log_by_plant",
+                      "title":  "Flight log by plant",
+                      "path":  "files/flight_log_by_plant.csv",
+                      "account":  "B"
+                  },
+                  {
+                      "id":  "network_plan",
+                      "title":  "Network plan",
+                      "path":  "files/network_plan.csv",
+                      "account":  "B"
+                  },
+                  {
+                      "id":  "it_exception_template",
+                      "title":  "It exception template",
+                      "path":  "files/it_exception_template.csv",
+                      "account":  "B"
+                  },
+                  {
+                      "id":  "allocation_guard_summary",
+                      "title":  "Allocation guard summary",
+                      "path":  "files/allocation_guard_summary.csv",
+                      "account":  "B"
+                  },
+                  {
+                      "id":  "insurer_premium_letter",
+                      "title":  "Insurer premium letter",
+                      "path":  "files/insurer_premium_letter.csv",
+                      "account":  "B"
+                  },
+                  {
+                      "id":  "K_install_note_hnz",
+                      "title":  "Installer\u0027s note",
+                      "path":  "files/K_install_note_hnz.txt",
+                      "account":  "K"
+                  },
+                  {
+                      "id":  "K_insurance_schedule_hnz",
+                      "title":  "Insurance schedule extract",
+                      "path":  "files/K_insurance_schedule_hnz.txt",
+                      "account":  "K"
+                  }
+              ]
 }

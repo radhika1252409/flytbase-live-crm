@@ -21,6 +21,7 @@ import "./App.css";
 
 const DATA_FILES = [
   "accounts-export.json",
+  "kestrel-estates.json",
   "account-a-paperwork.json",
   "account-b-paperwork.json",
   "signals.json",
@@ -54,9 +55,15 @@ function money(value, accountId) {
     return "Not available";
   }
 
+  const currencies = {
+    A: "GBP",
+    B: "EUR",
+    K: "USD",
+  };
+
   return new Intl.NumberFormat("en-GB", {
     style: "currency",
-    currency: accountId === "A" ? "GBP" : "EUR",
+    currency: currencies[accountId] || "USD",
     maximumFractionDigits: 0,
   }).format(Number(value));
 }
@@ -91,6 +98,148 @@ function statusClass(status = "") {
   return "status-neutral";
 }
 
+// Existing account recommendations plus evidence-driven recommendations
+// for accounts added to the export.
+function buildNextMoves(account) {
+  if (account?.id === "A") {
+    return [
+      {
+        title: "Get the data-flow pack to Tarn Valley",
+        detail:
+          "Engineering can prepare the pack in a week. The DPO needs it before signing the DPIA.",
+        priority: "Urgent",
+        owner: "Customer Success + Engineering",
+        deadline: "Before the DPIA can be signed",
+        deal: "Tarn Valley and Norwold go live",
+      },
+      {
+        title: "Build a cost-per-flight comparison",
+        detail:
+          "Ask Ewan to calculate drone operator overtime against the approximately £1,500 helicopter-hour cost.",
+        priority: "High",
+        owner: "Ewan Brooks + Customer Success",
+        deadline: "Before the finance bid window",
+        deal: "Scale Westmere's fleet",
+      },
+      {
+        title: "Put a costed operating model into the tender",
+        detail:
+          "Confirm staffing, finance sign-off and which forces will operate the proposed 300 docks.",
+        priority: "High",
+        owner: "Rhys Calder + Finance",
+        deadline: "Before the tender specification locks",
+        deal: "300-dock framework tender",
+      },
+    ];
+  }
+
+  if (account?.id === "B") {
+    return [
+      {
+        title: "Document the deputy's rollout knowledge",
+        detail:
+          "Capture the rollout template, plant contacts, operator training and site setup before the deputy leaves.",
+        priority: "Urgent",
+        owner: "Stefan Roy + Customer Success",
+        deadline: "Before the deputy leaves",
+        deal: "Idle plant rollout",
+      },
+      {
+        title: "Agree Plant 7 alert-response ownership",
+        detail:
+          "The guard contractor's current contract excludes drone alerts. Agree who responds and update the process.",
+        priority: "High",
+        owner: "Beatriz Alonso + Stefan Roy",
+        deadline: "Before expanding night patrols",
+        deal: "Aldermoor contract renewal",
+      },
+      {
+        title: "Prepare for the network segmentation project",
+        detail:
+          "Work with Owen to plan exceptions before the project starts in four months.",
+        priority: "High",
+        owner: "Owen Fitch + Solutions Engineering",
+        deadline: "Before network segmentation starts",
+        deal: "Idle plant rollout",
+      },
+    ];
+  }
+
+  const facts = account?.facts ?? [];
+  const opportunities = account?.opportunities ?? [];
+
+  const hasFact = (...words) =>
+    facts.some((fact) => {
+      const text = `${fact.text || ""} ${fact.id || ""}`.toLowerCase();
+      return words.some((word) => text.includes(word));
+    });
+
+  const moves = [];
+
+  // Identify operational readiness blockers from account evidence.
+  if (
+    hasFact("certified pilot", "no pilot", "test flight", "commissioned")
+  ) {
+    moves.push({
+      title: "Resolve pilot coverage and commissioning",
+      detail:
+        "Confirm who can legally operate the system, assess the proposed training, and arrange a documented commissioning test flight.",
+      priority: "Urgent",
+      owner: "Account owner + Customer Success",
+      deadline: "Before go-live",
+      deal: opportunities[0]?.title || "Operational go-live",
+    });
+  }
+
+  if (
+    hasFact("insurer", "insurance", "not declared", "not notified")
+  ) {
+    moves.push({
+      title: "Obtain insurer notification and clearance",
+      detail:
+        "Contact the insurance representative, disclose the equipment and intended operation, and confirm requirements in writing before use.",
+      priority: "Urgent",
+      owner: "Account owner + Insurance contact",
+      deadline: "Before equipment is used",
+      deal: opportunities[0]?.title || "Operational go-live",
+    });
+  }
+
+  if (
+    hasFact("board vote", "board meeting", "security budget", "residents")
+  ) {
+    moves.push({
+      title: "Prepare a decision-ready board proposal",
+      detail:
+        "Set out the operational plan, remaining costs, responsibilities and evidence needed for the board's decision.",
+      priority: "High",
+      owner: "Account owner + Decision-maker",
+      deadline: "Before the next board meeting",
+      deal: opportunities[0]?.title || "Account renewal",
+    });
+  }
+
+  // Generic fallback for accounts with different evidence patterns.
+  for (const opportunity of opportunities) {
+    if (moves.length >= 3) break;
+
+    if (moves.some((move) => move.deal === opportunity.title)) continue;
+
+    moves.push({
+      title: `Resolve blocker: ${opportunity.title}`,
+      detail:
+        opportunity.blocker?.text ||
+        "Confirm the outstanding requirements and agree the next customer action.",
+      priority: opportunity.deadline?.soon ? "Urgent" : "High",
+      owner: "Account owner + relevant stakeholder",
+      deadline: opportunity.deadline?.text || "Confirm with account owner",
+      deal: opportunity.title,
+    });
+  }
+
+  return moves.slice(0, 3);
+}
+
 function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -105,7 +254,7 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // LOAD DATA AND CHECK LIVE MCP SIGNALS
+  // LOAD ACCOUNT DATA AND LIVE SIGNALS
   useEffect(() => {
     let isMounted = true;
     let requestInProgress = false;
@@ -125,7 +274,9 @@ function App() {
         );
 
         const files = Object.fromEntries(responses);
+
         const exportData = unwrap(files["accounts-export.json"]);
+        const kestrelData = unwrap(files["kestrel-estates.json"]);
 
         if (!Array.isArray(exportData.accounts)) {
           throw new Error(
@@ -133,11 +284,38 @@ function App() {
           );
         }
 
+        // Merge any newly discovered account records without duplicating IDs.
+        const existingIds = new Set(
+          exportData.accounts.map((account) => account.id)
+        );
+
+        const additionalAccounts = (
+          kestrelData.accounts ?? []
+        ).filter((account) => !existingIds.has(account.id));
+
+        const accounts = [
+          ...exportData.accounts,
+          ...additionalAccounts,
+        ];
+
+        const existingFileIds = new Set(
+          (exportData.files ?? []).map((file) => file.id)
+        );
+
+        const additionalFiles = (
+          kestrelData.files ?? []
+        ).filter((file) => !existingFileIds.has(file.id));
+
+        const allFiles = [
+          ...(exportData.files ?? []),
+          ...additionalFiles,
+        ];
+
         if (!isMounted) return;
 
         setData({
-          accounts: exportData.accounts,
-          files: exportData.files ?? [],
+          accounts,
+          files: allFiles,
           paperworkA: unwrap(files["account-a-paperwork.json"]),
           paperworkB: unwrap(files["account-b-paperwork.json"]),
           signals: unwrap(files["signals.json"]),
@@ -169,18 +347,15 @@ function App() {
       requestInProgress = true;
 
       try {
-        const response = await fetch(
-          "/api/tool/get_signals",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              arguments: {},
-            }),
-          }
-        );
+        const response = await fetch("/api/tool/get_signals", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            arguments: {},
+          }),
+        });
 
         if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
@@ -194,7 +369,6 @@ function App() {
 
         const liveData = unwrap(result);
 
-        // Reject error responses without replacing existing data.
         if (
           result.result?.isError ||
           !Array.isArray(liveData.signals)
@@ -235,7 +409,7 @@ function App() {
 
     loadData();
 
-    // Check MCP for new signals every 60 seconds.
+    // One live signal refresh every 60 seconds.
     const signalInterval = setInterval(refreshSignals, 60000);
 
     return () => {
@@ -252,9 +426,23 @@ function App() {
   const paperwork = useMemo(() => {
     if (!data) return [];
 
-    return activeAccount === "A"
-      ? data.paperworkA.records ?? []
-      : data.paperworkB.records ?? [];
+    if (activeAccount === "A") {
+      return data.paperworkA.records ?? [];
+    }
+
+    if (activeAccount === "B") {
+      return data.paperworkB.records ?? [];
+    }
+
+    // New accounts automatically display their supporting file references.
+    return data.files
+      .filter((file) => file.account === activeAccount)
+      .map((file) => ({
+        path: file.path,
+        kind: "Supporting file",
+        text:
+          "This file is listed in the account export. Its original contents have not been loaded into this dashboard.",
+      }));
   }, [data, activeAccount]);
 
   const allFacts = account?.facts ?? [];
@@ -320,54 +508,7 @@ function App() {
     );
   });
 
-  const nextMoves =
-    activeAccount === "A"
-      ? [
-          {
-            title: "Get the data-flow pack to Tarn Valley",
-            detail:
-              "Engineering can prepare the pack in a week. The DPO needs it before signing the DPIA.",
-            priority: "Urgent",
-            owner: "Customer Success + Engineering",
-          },
-          {
-            title: "Build a cost-per-flight comparison",
-            detail:
-              "Ask Ewan to calculate drone operator overtime against the approximately £1,500 helicopter-hour cost.",
-            priority: "High",
-            owner: "Ewan Brooks + Customer Success",
-          },
-          {
-            title: "Put a costed operating model into the tender",
-            detail:
-              "Confirm staffing, finance sign-off and which forces will operate the proposed 300 docks.",
-            priority: "High",
-            owner: "Rhys Calder + Finance",
-          },
-        ]
-      : [
-          {
-            title: "Document the deputy's rollout knowledge",
-            detail:
-              "Capture the rollout template, plant contacts, operator training and site setup before the deputy leaves.",
-            priority: "Urgent",
-            owner: "Stefan Roy + Customer Success",
-          },
-          {
-            title: "Agree Plant 7 alert-response ownership",
-            detail:
-              "The guard contractor's current contract excludes drone alerts. Agree who responds and update the process.",
-            priority: "High",
-            owner: "Beatriz Alonso + Stefan Roy",
-          },
-          {
-            title: "Prepare for the network segmentation project",
-            detail:
-              "Work with Owen to plan exceptions before the project starts in four months.",
-            priority: "High",
-            owner: "Owen Fitch + Solutions Engineering",
-          },
-        ];
+  const nextMoves = buildNextMoves(account);
 
   if (loading) {
     return (
@@ -427,8 +568,8 @@ function App() {
           <div className="connection-card">
             <span className="connection-dot" />
             <div>
-              <strong>Local data loaded</strong>
-              <small>8 JSON files available</small>
+              <strong>Account data loaded</strong>
+              <small>{data.accounts.length} accounts available</small>
             </div>
           </div>
           <small className="sidebar-foot">
@@ -511,7 +652,9 @@ function App() {
                 }}
               >
                 <span
-                  className={`account-icon account-${item.id.toLowerCase()}`}
+                  className={`account-icon account-${String(
+                    item.id
+                  ).toLowerCase()}`}
                 >
                   <Building2 size={20} />
                 </span>
@@ -648,9 +791,22 @@ function App() {
 
                           <p>{move.detail}</p>
                           <small>Owner: {move.owner}</small>
+                          {move.deadline && (
+                            <small>Target: {move.deadline}</small>
+                          )}
+                          {move.deal && (
+                            <small>Deal: {move.deal}</small>
+                          )}
                         </div>
                       </div>
                     ))}
+
+                    {nextMoves.length === 0 && (
+                      <p className="empty-state">
+                        No recommended moves are available from the current
+                        account records.
+                      </p>
+                    )}
                   </div>
                 </section>
 
@@ -698,6 +854,12 @@ function App() {
                         </div>
                       </div>
                     ))}
+
+                    {deadlines.length === 0 && (
+                      <p className="empty-state">
+                        No deadlines recorded.
+                      </p>
+                    )}
                   </div>
 
                   <div className="risk-note">
@@ -733,6 +895,12 @@ function App() {
                         </b>
                       </div>
                     ))}
+
+                    {opportunities.length === 0 && (
+                      <p className="empty-state">
+                        No opportunities recorded.
+                      </p>
+                    )}
                   </div>
 
                   <button
@@ -772,6 +940,12 @@ function App() {
                         </div>
                       </div>
                     ))}
+
+                    {offers.length === 0 && (
+                      <p className="empty-state">
+                        No commercial offers recorded.
+                      </p>
+                    )}
                   </div>
                 </section>
               </div>
@@ -842,6 +1016,12 @@ function App() {
                     </small>
                   </article>
                 ))}
+
+                {opportunities.length === 0 && (
+                  <p className="empty-state">
+                    No opportunities recorded for this account.
+                  </p>
+                )}
               </div>
             </section>
           )}
@@ -897,6 +1077,12 @@ function App() {
                     </div>
                   </article>
                 ))}
+
+                {stakeholders.length === 0 && (
+                  <p className="empty-state">
+                    No stakeholders recorded.
+                  </p>
+                )}
               </div>
             </section>
           )}
@@ -971,7 +1157,7 @@ function App() {
                   <div>
                     <h3>Supporting paperwork</h3>
                     <p>
-                      Original account records from the export.
+                      Original account records and supporting file references.
                     </p>
                   </div>
 
@@ -993,9 +1179,15 @@ function App() {
                         <ChevronRight size={16} />
                       </summary>
 
-                      <p>{record.text}</p>
+                      <p>{record.text || "No extracted text available."}</p>
                     </details>
                   ))}
+
+                  {paperwork.length === 0 && (
+                    <p className="empty-state">
+                      No supporting paperwork references are available.
+                    </p>
+                  )}
                 </div>
               </section>
             </div>
