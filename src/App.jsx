@@ -170,7 +170,7 @@ function App() {
 
       try {
         const response = await fetch(
-          "http://localhost:3001/api/tool/get_signals",
+          "/api/tool/get_signals",
           {
             method: "POST",
             headers: {
