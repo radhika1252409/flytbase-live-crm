@@ -290,6 +290,7 @@ function App() {
       }
 
       const result = await response.json();
+      console.log("WRITE NOTE RESPONSE:", result);
 
       if (!result.connected || result.result?.isError) {
         throw new Error(
@@ -1376,6 +1377,7 @@ function App() {
                   >
                     {savingNote ? "Saving..." : "Save through MCP"}
                   </button>
+                  
 
                   {noteStatus && (
                     <p role="status" className="empty-state">
