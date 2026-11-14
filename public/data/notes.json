@@ -1,0 +1,13 @@
+{
+    "connected":  true,
+    "tool":  "list_notes",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "type":  "text",
+                                       "text":  "{\n \"notes\": []\n}"
+                                   }
+                               ],
+                   "isError":  false
+               }
+}

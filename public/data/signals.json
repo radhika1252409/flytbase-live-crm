@@ -1,0 +1,13 @@
+{
+    "connected":  true,
+    "tool":  "get_signals",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "type":  "text",
+                                       "text":  "{\n \"signals\": []\n}"
+                                   }
+                               ],
+                   "isError":  false
+               }
+}
