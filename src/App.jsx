@@ -1,4 +1,3 @@
-
 import { useEffect, useMemo, useState } from "react";
 import {
   Activity,
@@ -36,6 +35,7 @@ const NAV_ITEMS = [
   { id: "opportunities", label: "Opportunities", icon: Building2 },
   { id: "people", label: "Stakeholders", icon: Users },
   { id: "evidence", label: "Evidence library", icon: FileText },
+  { id: "signals", label: "Live Signals & Notes", icon: Bell },
 ];
 
 function unwrap(file) {
@@ -98,8 +98,7 @@ function statusClass(status = "") {
   return "status-neutral";
 }
 
-// Existing account recommendations plus evidence-driven recommendations
-// for accounts added to the export.
+// Existing account recommendations plus evidence-driven recommendations.
 function buildNextMoves(account) {
   if (account?.id === "A") {
     return [
@@ -176,7 +175,6 @@ function buildNextMoves(account) {
 
   const moves = [];
 
-  // Identify operational readiness blockers from account evidence.
   if (
     hasFact("certified pilot", "no pilot", "test flight", "commissioned")
   ) {
@@ -219,7 +217,6 @@ function buildNextMoves(account) {
     });
   }
 
-  // Generic fallback for accounts with different evidence patterns.
   for (const opportunity of opportunities) {
     if (moves.length >= 3) break;
 
@@ -248,11 +245,70 @@ function App() {
   const [activeTab, setActiveTab] = useState("overview");
   const [search, setSearch] = useState("");
 
+  const [noteTitle, setNoteTitle] = useState("");
+  const [noteText, setNoteText] = useState("");
+  const [noteKind, setNoteKind] = useState("note");
+  const [noteStatus, setNoteStatus] = useState("");
+  const [savingNote, setSavingNote] = useState(false);
+
   const navigate = (tab) => {
     setActiveTab(tab);
     setSearch("");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  // SAVE NOTES THROUGH MCP
+  async function saveNote(event) {
+    event.preventDefault();
+
+    if (!noteText.trim()) {
+      setNoteStatus("Please enter some note text.");
+      return;
+    }
+
+    setSavingNote(true);
+    setNoteStatus("");
+
+    try {
+      const response = await fetch("/api/tool/write_note", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          arguments: {
+            account: activeAccount,
+            title: noteTitle.trim() || "CRM update",
+            text: noteText.trim(),
+            kind: noteKind,
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Server returned HTTP ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (!result.connected || result.result?.isError) {
+        throw new Error(
+          result.result?.content?.[0]?.text ||
+            result.error ||
+            "MCP could not save the note."
+        );
+      }
+
+      setNoteStatus("Note successfully saved to the assignment!");
+      setNoteTitle("");
+      setNoteText("");
+      setNoteKind("note");
+    } catch (err) {
+      setNoteStatus(`Could not save note: ${err.message}`);
+    } finally {
+      setSavingNote(false);
+    }
+  }
 
   // LOAD ACCOUNT DATA AND LIVE SIGNALS
   useEffect(() => {
@@ -284,7 +340,6 @@ function App() {
           );
         }
 
-        // Merge any newly discovered account records without duplicating IDs.
         const existingIds = new Set(
           exportData.accounts.map((account) => account.id)
         );
@@ -407,9 +462,12 @@ function App() {
       }
     }
 
-    loadData();
+    // Load account data before fetching the first live signal response.
+    loadData().then(() => {
+      refreshSignals();
+    });
 
-    // One live signal refresh every 60 seconds.
+    // Refresh live signals every 60 seconds.
     const signalInterval = setInterval(refreshSignals, 60000);
 
     return () => {
@@ -434,7 +492,6 @@ function App() {
       return data.paperworkB.records ?? [];
     }
 
-    // New accounts automatically display their supporting file references.
     return data.files
       .filter((file) => file.account === activeAccount)
       .map((file) => ({
@@ -536,6 +593,14 @@ function App() {
     );
   }
 
+  const liveSignals = Array.isArray(data.signals?.signals)
+    ? data.signals.signals
+    : [];
+
+  const accountSignals = liveSignals.filter(
+    (signal) => signal.account === activeAccount
+  );
+
   return (
     <div className="app-shell">
       {/* SIDEBAR */}
@@ -617,7 +682,9 @@ function App() {
                     ? "Opportunities"
                     : activeTab === "people"
                       ? "Stakeholder power map"
-                      : "Evidence library"}
+                      : activeTab === "signals"
+                        ? "Live Signals & Notes"
+                        : "Evidence library"}
               </h1>
 
               <p>
@@ -627,7 +694,9 @@ function App() {
                     ? "Review potential opportunities, blockers and source evidence."
                     : activeTab === "people"
                       ? "Understand customer relationships and stakeholder availability."
-                      : "Explore recorded account facts and supporting paperwork."}
+                      : activeTab === "signals"
+                        ? "Monitor incoming account events and save notes, risks and next steps."
+                        : "Explore recorded account facts and supporting paperwork."}
               </p>
             </div>
 
@@ -649,6 +718,7 @@ function App() {
                 onClick={() => {
                   setActiveAccount(item.id);
                   setSearch("");
+                  setNoteStatus("");
                 }}
               >
                 <span
@@ -1189,6 +1259,130 @@ function App() {
                     </p>
                   )}
                 </div>
+              </section>
+            </div>
+          )}
+
+          {/* LIVE SIGNALS AND NOTES PAGE */}
+          {activeTab === "signals" && (
+            <div className="evidence-layout">
+              <section className="panel">
+                <div className="panel-heading">
+                  <div>
+                    <h3>Incoming live events</h3>
+                    <p>
+                      Events retrieved directly from the MCP using
+                      get_signals. Refreshes automatically every 60 seconds.
+                    </p>
+                  </div>
+                  <Activity size={20} />
+                </div>
+
+                {accountSignals.map((signal) => (
+                  <article className="fact-item" key={signal.id}>
+                    <div className="fact-top">
+                      <span className="eyebrow">{signal.id}</span>
+                      <span className="status-warning">
+                        {shortDate(signal.dated)}
+                      </span>
+                    </div>
+
+                    <h4>{signal.title}</h4>
+                    <p>{signal.summary}</p>
+
+                    {(signal.records ?? []).map((record, index) => (
+                      <p key={`${record.path}-${index}`}>
+                        <small>
+                          Source: {record.path}
+                          {record.kind ? ` · ${record.kind}` : ""}
+                        </small>
+                      </p>
+                    ))}
+                  </article>
+                ))}
+
+                {accountSignals.length === 0 && (
+                  <p className="empty-state">
+                    No live events currently returned for this account.
+                  </p>
+                )}
+              </section>
+
+              <section className="panel">
+                <div className="panel-heading">
+                  <div>
+                    <h3>Write back to the account</h3>
+                    <p>
+                      Save a note, task, risk or next step through the MCP.
+                    </p>
+                  </div>
+                  <FileText size={20} />
+                </div>
+
+                <form onSubmit={saveNote}>
+                  <label htmlFor="note-account">Account</label>
+                  <select
+                    id="note-account"
+                    value={activeAccount}
+                    onChange={(event) => {
+                      setActiveAccount(event.target.value);
+                      setNoteStatus("");
+                    }}
+                  >
+                    {data.accounts.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+
+                  <label htmlFor="note-kind">Record type</label>
+                  <select
+                    id="note-kind"
+                    value={noteKind}
+                    onChange={(event) => setNoteKind(event.target.value)}
+                  >
+                    <option value="note">Note</option>
+                    <option value="task">Task</option>
+                    <option value="risk">Risk</option>
+                    <option value="next_step">Next step</option>
+                  </select>
+
+                  <label htmlFor="note-title">Title</label>
+                  <input
+                    id="note-title"
+                    type="text"
+                    value={noteTitle}
+                    onChange={(event) => setNoteTitle(event.target.value)}
+                    placeholder="Short title"
+                    maxLength={150}
+                  />
+
+                  <label htmlFor="note-text">Note details</label>
+                  <textarea
+                    id="note-text"
+                    value={noteText}
+                    onChange={(event) => setNoteText(event.target.value)}
+                    placeholder="Write your account update..."
+                    rows={5}
+                    maxLength={4000}
+                    required
+                  />
+
+                  <button
+                    type="submit"
+                    disabled={savingNote}
+                    className="primary-button"
+                  >
+                    {savingNote ? "Saving..." : "Save through MCP"}
+                  </button>
+
+                  {noteStatus && (
+                    <p role="status" className="empty-state">
+                      {noteStatus}
+                    </p>
+                  )}
+                </form>
               </section>
             </div>
           )}
