@@ -20,6 +20,40 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "Backend is running" });
 });
 
+app.get("/api/tools", async (req, res) => {
+  let client;
+
+  try {
+    client = new Client({
+      name: "flytbase-live-crm",
+      version: "1.0.0"
+    });
+
+    const transport = new StreamableHTTPClientTransport(
+      new URL(process.env.MCP_URL),
+      {
+        requestInit: {
+          headers: {
+            Authorization: `Bearer ${process.env.AQ_TOKEN}`
+          }
+        }
+      }
+    );
+
+    await client.connect(transport);
+
+    const result = await client.listTools();
+    res.json(result);
+  } catch (error) {
+    console.error("Tool inspection error:", error.message);
+    res.status(500).json({ error: error.message });
+  } finally {
+    if (client) {
+      try { await client.close(); } catch {}
+    }
+  }
+});
+
 app.post("/api/tool/:name", async (req, res) => {
   let client;
 
